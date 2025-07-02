@@ -3,7 +3,6 @@ import React from 'react';
 
 const Footer = ({ companyName, links, socialLinks }) => {
   const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-gray-800 text-white p-6">
       <div className="container mx-auto">
