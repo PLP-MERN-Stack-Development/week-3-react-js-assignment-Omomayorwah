@@ -8,23 +8,32 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
 
-export default function JokeCard({ joke, idex, onDelete }) {
+export default function JokeCard({ joke, onDelete }) {
     return (
-        <Card className="p-4 flex justify-between items-center w-96 mx-auto my-6">
-            <div className="p-2 w-full">
-                 <CardHeader>
-                    <CardTitle>{joke.type}</CardTitle>
-                    <CardDescription>Enjoy some light-hearted programming humor!</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <p> {joke.setup} <br /> {joke.punchline} </p>
-                </CardContent>
+        <Card className="w-full max-w-md mx-auto">
+            <CardHeader>
+            <CardTitle className="text-center capitalize">{joke.type} Joke</CardTitle>
+            <CardDescription className="text-center">#{joke.id}</CardDescription>
+            </CardHeader>
+            <CardContent>
+            <div className="space-y-4">
+                <p className="text-lg font-medium">{joke.setup}</p>
+                <p className="text-base text-blue-600 dark:text-blue-400 italic">{joke.punchline}</p>
             </div>
-                <CardFooter>
-                    <Button variant="destructive" onClick={() => onDelete(handleDelete)}>Cancel</Button>
-                </CardFooter>
+            </CardContent>
+            <CardFooter className="flex justify-center">
+            <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={onDelete}
+                className="flex items-center gap-2"
+            >
+                <Trash2 className="w-4 h-4" />
+                Remove
+            </Button>
+            </CardFooter>
         </Card>
     );
 }
-
